@@ -1,5 +1,0 @@
-tasks:
-* set up mysql, create db and a table to start 
-* connect to mysql db from python and query the db
-* load a Json file into the db
-*
