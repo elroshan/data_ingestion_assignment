@@ -1,6 +1,6 @@
 import json
 from data import create_table, insert_batch, get_number_of_records, get_last_ten
-from validate_json_against_schema import check_number_of_fields
+from validate_data import check_number_of_fields
 
 table_name = "air_quality_system_data"
 errors_table_name="invalid_data"
