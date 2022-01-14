@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  db:
+    build: ./db/
+  app :
+    build: ./app/
+    depends_on:
+      - "db"
+    command: ["./wait-for-it.sh", "db:5432", "--", "python", "-u", "load_data_postgres.py"]
