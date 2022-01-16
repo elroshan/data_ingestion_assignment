@@ -1,49 +1,50 @@
-Intorduction
+# Intorduction
 
-A data engineering assignment that ingests data about Air Quality Measures on 
-the National Environmental Health Tracking Network. The data is downloaded from data.gov and 
-it's in Json format.
+A data pipeline that ingests data about Air Quality Measures on the National Environmental
+Health Tracking Network. The json format data is downloaded from data.gov.
 
-Implementation overview
+# Implementation overview
 
 The solution consists of two services. 
 - A containerized Python application which reads, validates and transfers data to PostgreSQL.
-- A containerized PstgreSQL as data warehouse.
-Both services are designed to be run in one container and the docker-compose file can be found
-  in the root directory of the project.
+- A containerized PstgreSQL where data is stored in relational format.
 
-Prerequisits:
-To install and deploy components, you need to have Docker.
+The docker-compose file in the root directory is used to define the services.
 
-Configuration steps:
+# Prerequisites
+To install and deploy, you need to have Docker Desktop.
 
-Navigate into the root of the project and run the following command:
-docker compose up --build -d
+# Configuration steps
+
+Navigate to the root of the project and run the following command:
+
+`docker compose up --build -d`
 
 This will build and run two containers mentioned above.
 
 In order to see the application logs run:
-docker logs data_ingestion_assignment_app_1
 
-Notes on how the solution is implemented
+`docker logs data_ingestion_assignment_app_1`
 
-tasks list
+# Notes 
+Here some high level notes on how the solution was implemented is shared.
 
-Get the docker app "working", prints on screen -- DONE
-Get the app to connect and query Postgres -- DONE
-Get the app to read the meta data from Json file and make create table automatically -- DONE
-Make a simple data validation to check the length of the each record -- Done
-Batch insert valid data into the right table and errors into the errors tables  -- DONE
-Containerize the app and Postgres using Docker-compose --Done
+## Tasks list
 
-Development considerations
+- Get the docker app "working", prints on screen.
+- Get the app to connect and query Postgres.
+- Get the app to read the metadata from json file and make 'create table' automatically.
+- Make a simple data validation to check the length of each record.
+- Batch insert valid data into the right table and errors into the invalid-data table.
+- Containerize the app and Postgres using Docker-compose.
+
+## Development considerations
 - The data is downloaded from https://catalog.data.gov/dataset/air-quality-measures-on-the-national-environmental-health-tracking-network
-and storored under the /app directory. 
-- In oredr to overcome the order of getting up postgres and then running the application, 
-"wait-for-it.sh" is used. for more info please see:
+and stored under the /app directory. 
+- To start services in the right order, i.e. first postgres and then the application, "wait-for-it.sh" is used. for more info please see:
 https://docs.docker.com/compose/startup-order/
 - Containerizing the app and Postgres is inspired from:
 https://github.com/stefanopassador/Tutorial_DockerPythonPostgres
 
-Next steps:
-Improve data validation
+## Next steps:
+Improve data validation, though given the schema it's hard to imagine what more can be achieved automatically.
