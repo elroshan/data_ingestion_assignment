@@ -5,8 +5,8 @@ from psycopg2.extras import execute_values
 
 
 db_name = 'database'
-db_user = 'username'
-db_pass = 'secret'
+db_user = 'dbuser'
+db_pass = 'dbpass'
 db_host = 'db'
 db_port = '5432'
 

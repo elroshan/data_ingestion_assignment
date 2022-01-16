@@ -1,4 +1,4 @@
 FROM postgres:latest
-ENV POSTGRES_PASSWORD=secret
-ENV POSTGRES_USER=username
+ENV POSTGRES_PASSWORD=dbpass
+ENV POSTGRES_USER=dbuser
 ENV POSTGRES_DB=database
