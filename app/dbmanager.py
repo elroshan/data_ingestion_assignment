@@ -1,15 +1,12 @@
 import sys
-
 from psycopg2 import connect, Error
 from psycopg2.extras import execute_values
-
 
 db_name = 'database'
 db_user = 'dbuser'
 db_pass = 'dbpass'
 db_host = 'db'
 db_port = '5432'
-
 try:
     conn = connect(
         host=db_host,
