@@ -30,9 +30,11 @@ if __name__ == '__main__':
     create_table(ERRORS_TABLE_NAME, columns_list)
     result = check_number_of_fields(json_data['data'], len(columns_list))
     insert_batch(TABLE_NAME, columns_list, result[1])
+    print(f"The total number of records in {TABLE_NAME} is: {get_number_of_records(TABLE_NAME)}")
     insert_batch(ERRORS_TABLE_NAME, columns_list, result[0])
+    print(f"The total number of records in {ERRORS_TABLE_NAME} is: {get_number_of_records(ERRORS_TABLE_NAME)}")
 
-    print(f"The total number of records is: {get_number_of_records(ERRORS_TABLE_NAME)}")
+
     last_ten_rows = get_last_ten(TABLE_NAME)
-    print("The last 10 records inserted are:")
+    print(f"The last 10 records inserted in {TABLE_NAME} are:")
     print("\n".join([str(row) for row in last_ten_rows]))

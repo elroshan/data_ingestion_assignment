@@ -4,7 +4,7 @@ def check_number_of_fields(data_list, n):
         if len(item) != n:
             errors.append(item)
             data_list.remove(item)
-    return (errors, data_list)
+    return errors, data_list
 
 
 

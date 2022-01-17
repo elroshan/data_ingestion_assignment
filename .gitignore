@@ -1,3 +1,4 @@
 # idea specific
 .idea/
 *.iml
+test/__pycache__/
